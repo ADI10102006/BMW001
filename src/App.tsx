@@ -11,7 +11,8 @@ import {
   Shield,
   Settings,
   Zap,
-  Clock
+  Clock,
+  MessageCircle
 } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { GlassCard } from './components/ui/GlassCard';
@@ -45,17 +46,17 @@ const App = () => {
   ];
 
   const services = [
-    { title: 'M Performance Tuning', icon: <Zap className="text-bmw-blue" />, desc: 'Unlock the full potential of your BMW with factory-certified performance upgrades.' },
-    { title: 'Luxury Detailing', icon: <Shield className="text-bmw-blue" />, desc: 'Elite protection and restoration services using premium ceramic coatings and materials.' },
-    { title: 'Precision Service', icon: <Settings className="text-bmw-blue" />, desc: 'Expert maintenance by BMW-certified technicians using only genuine parts.' },
-    { title: '24/7 Concierge', icon: <Clock className="text-bmw-blue" />, desc: 'Round-the-clock support and roadside assistance for total peace of mind.' }
+    { title: 'M Performance Tuning', icon: <Zap className="text-adi-blue" />, desc: 'Unlock the full potential of your BMW with factory-certified performance upgrades.' },
+    { title: 'Luxury Detailing', icon: <Shield className="text-adi-blue" />, desc: 'Elite protection and restoration services using premium ceramic coatings and materials.' },
+    { title: 'Precision Service', icon: <Settings className="text-adi-blue" />, desc: 'Expert maintenance by BMW-certified technicians using only genuine parts.' },
+    { title: '24/7 Concierge', icon: <Clock className="text-adi-blue" />, desc: 'Round-the-clock support and roadside assistance for total peace of mind.' }
   ];
 
   return (
-    <div className="min-h-screen bg-bmw-dark text-white selection:bg-bmw-blue/30 overflow-x-hidden">
+    <div className="min-h-screen bg-adi-dark text-white selection:bg-adi-blue/30 overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Home Page */}
       <section id="home" className="relative h-screen w-full overflow-hidden">
         <video 
           autoPlay 
@@ -66,7 +67,7 @@ const App = () => {
         >
           <source src="https://cdn.pixabay.com/video/2020/09/24/50865-463428352_large.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bmw-dark/20 to-bmw-dark" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-adi-dark/20 to-adi-dark" />
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <motion.div
@@ -74,26 +75,29 @@ const App = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
+            <div className="mb-6 flex justify-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW" className="h-24 w-24 brightness-110" />
+            </div>
             <h1 className="mb-4 text-5xl font-black tracking-tighter md:text-8xl">
-              THE ULTIMATE <br /> 
-              <span className="text-bmw-blue">DRIVING MACHINE</span>
+              ADI <span className="text-adi-blue">MOTORS</span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-white/60 md:text-xl">
-              Experience the pinnacle of German engineering and luxury performance. 
-              Step into the future of mobility with BMW.
+            <p className="mx-auto max-w-2xl text-lg text-white/60 md:text-xl font-light tracking-wide">
+              Step into the pinnacle of luxury. Experience the ultimate driving machine 
+              in our state-of-the-art digital showroom.
             </p>
-            <motion.button 
+            <motion.a 
+              href="#portfolio"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-10 rounded-full bg-white px-8 py-4 text-sm font-bold text-black transition-all hover:bg-bmw-blue hover:text-white"
+              className="mt-10 inline-block rounded-full bg-white px-10 py-4 text-sm font-bold text-black transition-all hover:bg-adi-blue hover:text-white"
             >
-              EXPLORE MODELS
-            </motion.button>
+              EXPLORE THE FLEET
+            </motion.a>
           </motion.div>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Page */}
       <section id="about" className="relative py-24 md:py-32">
         <div className="absolute inset-0 z-0 opacity-10">
           <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=2000" className="h-full w-full object-cover" alt="Background" />
@@ -105,23 +109,23 @@ const App = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="mb-6 text-4xl font-bold md:text-6xl">A LEGACY OF <br /> INNOVATION</h2>
-              <p className="mb-8 text-lg text-white/60">
-                For over a century, BMW has been at the forefront of automotive excellence. 
-                Our showroom represents the intersection of heritage and future-forward design, 
-                offering an immersive environment for the discerning driver.
+              <h2 className="mb-6 text-4xl font-bold md:text-6xl tracking-tighter">THE LEGACY OF <br /> ADI MOTORS</h2>
+              <p className="mb-8 text-lg text-white/60 leading-relaxed">
+                ADI MOTORS isn't just a dealership; it's a destination for those who demand excellence. 
+                Our showroom represents a century of engineering mastery, brought to life through 
+                immersive design and unparalleled service.
               </p>
               <button 
                 onClick={() => setActiveModal('about')}
-                className="group flex items-center gap-2 text-lg font-semibold text-bmw-blue transition-colors hover:text-white"
+                className="group flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-lg font-semibold transition-all hover:bg-white hover:text-black"
               >
                 More Information <ArrowRight className="transition-transform group-hover:translate-x-2" />
               </button>
             </motion.div>
-            <GlassCard className="aspect-video overflow-hidden p-0">
+            <GlassCard className="aspect-video overflow-hidden p-0 border-white/20">
               <img 
                 src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1000" 
-                className="h-full w-full object-cover opacity-80 transition-transform duration-700 hover:scale-110" 
+                className="h-full w-full object-cover opacity-80 transition-transform duration-1000 hover:scale-110" 
                 alt="Showroom" 
               />
             </GlassCard>
@@ -129,17 +133,18 @@ const App = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="bg-bmw-dark/50 py-24 backdrop-blur-3xl">
-        <div className="container mx-auto px-6">
+      {/* Services Page */}
+      <section id="services" className="relative py-24 backdrop-blur-3xl">
+        <div className="absolute inset-0 bg-adi-blue/5" />
+        <div className="container relative z-10 mx-auto px-6">
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold md:text-5xl">PREMIUM SERVICES</h2>
-            <div className="mx-auto mt-4 h-1 w-24 bg-bmw-blue" />
+            <h2 className="text-4xl font-bold md:text-5xl tracking-tighter uppercase">Showroom Services</h2>
+            <div className="mx-auto mt-4 h-1 w-24 bg-adi-blue" />
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, idx) => (
-              <GlassCard key={idx} className="flex flex-col items-center text-center">
-                <div className="mb-6 rounded-full bg-white/5 p-4">
+              <GlassCard key={idx} className="flex flex-col items-center text-center group">
+                <div className="mb-6 rounded-full bg-white/5 p-6 transition-transform group-hover:rotate-[360deg] duration-700">
                   {React.cloneElement(service.icon as React.ReactElement, { size: 32 })}
                 </div>
                 <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
@@ -150,36 +155,38 @@ const App = () => {
           <div className="mt-16 text-center">
             <button 
               onClick={() => setActiveModal('services')}
-              className="rounded-full border border-white/20 px-10 py-4 font-bold transition-all hover:bg-white hover:text-black"
+              className="rounded-full border border-white/20 px-10 py-4 font-bold transition-all hover:bg-adi-blue hover:border-adi-blue"
             >
-              VIEW ALL SERVICES
+              MORE SERVICES
             </button>
           </div>
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Portfolio Page */}
       <section id="portfolio" className="py-24">
         <div className="container mx-auto px-6">
-          <h2 className="mb-16 text-center text-4xl font-bold md:text-5xl">THE FLEET</h2>
+          <h2 className="mb-16 text-center text-4xl font-bold md:text-5xl tracking-tighter">THE ADI MOTORS COLLECTION</h2>
           <div className="grid gap-8 md:grid-cols-3">
             {cars.map((car) => (
               <GlassCard 
                 key={car.id} 
-                className="group cursor-pointer p-0 overflow-hidden"
+                className="group cursor-pointer p-0 overflow-hidden border-white/10 hover:border-adi-blue/50"
                 onClick={() => setActiveModal(car.id)}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={car.image} 
                     alt={car.name} 
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100 flex items-end p-6">
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-adi-blue">View Specifications</span>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">{car.name}</h3>
-                  <p className="mt-2 text-sm text-bmw-blue font-medium">{car.specs}</p>
+                  <p className="mt-2 text-sm text-adi-blue font-medium">{car.specs}</p>
                 </div>
               </GlassCard>
             ))}
@@ -187,80 +194,131 @@ const App = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Page */}
       <section id="testimonials" className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-bmw-blue/5 blur-3xl" />
+        <div className="absolute inset-0 bg-adi-blue/5 blur-[120px]" />
         <div className="container relative z-10 mx-auto px-6">
-          <h2 className="mb-16 text-center text-4xl font-bold md:text-5xl">CLIENT VOICES</h2>
-          <div className="mx-auto max-w-3xl">
-            <GlassCard className="flex flex-col items-center text-center md:flex-row md:text-left gap-8">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Suriya_at_the_68th_National_Film_Awards.jpg/220px-Suriya_at_the_68th_National_Film_Awards.jpg" 
-                alt="Surya" 
-                className="h-32 w-32 rounded-full border-4 border-bmw-blue object-cover"
-              />
-              <div>
-                <div className="mb-4 flex gap-1 text-yellow-500">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+          <h2 className="mb-16 text-center text-4xl font-bold md:text-5xl tracking-tighter">ELITE REVIEWS</h2>
+          <div className="mx-auto max-w-4xl">
+            <GlassCard className="flex flex-col items-center text-center md:flex-row md:text-left gap-10 p-10 border-white/20">
+              <div className="relative">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Suriya_at_the_68th_National_Film_Awards.jpg/220px-Suriya_at_the_68th_National_Film_Awards.jpg" 
+                  alt="Surya" 
+                  className="h-40 w-40 rounded-full border-4 border-adi-blue object-cover shadow-[0_0_30px_rgba(0,102,178,0.3)]"
+                />
+                <div className="absolute -bottom-2 -right-2 rounded-full bg-adi-blue p-2">
+                  <Star size={20} fill="white" />
                 </div>
-                <p className="text-xl italic text-white/80">
-                  "The experience at the BMW showroom was truly world-class. The attention to detail in the cars and the service is very impressive and very comfortable. A true luxury experience."
+              </div>
+              <div className="flex-1">
+                <div className="mb-4 flex justify-center md:justify-start gap-1 text-yellow-500">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
+                </div>
+                <p className="text-2xl font-light italic leading-relaxed text-white/90">
+                  "The experience at ADI MOTORS was truly world-class. The attention to detail in the cars and the service is <span className="text-adi-blue font-bold">very impressive and very comfortable</span>. A true luxury experience."
                 </p>
-                <h4 className="mt-6 text-lg font-bold">Surya Sivakumar</h4>
-                <p className="text-sm text-white/50">Actor & BMW Enthusiast</p>
-                <button 
-                  onClick={() => setActiveModal('testimonial')}
-                  className="mt-4 text-sm font-bold text-bmw-blue hover:underline"
-                >
-                  Read Full Review
-                </button>
+                <div className="mt-8 flex items-center justify-between">
+                  <div>
+                    <h4 className="text-xl font-bold">Surya Sivakumar</h4>
+                    <p className="text-sm uppercase tracking-widest text-white/40">Actor & BMW Enthusiast</p>
+                  </div>
+                  <button 
+                    onClick={() => setActiveModal('testimonial')}
+                    className="rounded-full bg-white/5 px-6 py-2 text-sm font-bold text-adi-blue transition-all hover:bg-adi-blue hover:text-white"
+                  >
+                    Read Story
+                  </button>
+                </div>
               </div>
             </GlassCard>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24">
+      {/* Contact Page */}
+      <section id="contact" className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="grid gap-16 md:grid-cols-2">
             <div>
-              <h2 className="mb-8 text-4xl font-bold md:text-6xl">GET IN <br /> TOUCH</h2>
-              <p className="mb-12 text-lg text-white/50">
+              <h2 className="mb-8 text-4xl font-bold md:text-6xl tracking-tighter">CONNECT WITH <br /> ADI MOTORS</h2>
+              <p className="mb-12 text-lg text-white/50 font-light leading-relaxed">
                 Ready to experience the ultimate driving machine? Contact our showroom 
                 concierge to schedule a private viewing or test drive.
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <a href="tel:+1234567890" className="flex items-center gap-4 rounded-xl bg-white/5 p-4 transition-all hover:bg-bmw-blue">
-                  <Phone size={20} /> <span>Call Us</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="https://wa.me/1234567890" target="_blank" className="flex items-center gap-4 rounded-2xl bg-white/5 p-5 transition-all hover:bg-[#25D366] hover:text-white group">
+                  <MessageCircle size={24} className="text-[#25D366] group-hover:text-white" /> 
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-widest opacity-50">WhatsApp</span>
+                    <span className="font-bold">Chat with us</span>
+                  </div>
                 </a>
-                <a href="mailto:info@bmw-showroom.com" className="flex items-center gap-4 rounded-xl bg-white/5 p-4 transition-all hover:bg-bmw-blue">
-                  <Mail size={20} /> <span>Email</span>
+                <a href="tel:+1234567890" className="flex items-center gap-4 rounded-2xl bg-white/5 p-5 transition-all hover:bg-adi-blue group">
+                  <Phone size={24} className="text-adi-blue group-hover:text-white" /> 
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-widest opacity-50">Phone</span>
+                    <span className="font-bold">Call Concierge</span>
+                  </div>
                 </a>
-                <a href="https://instagram.com" target="_blank" className="flex items-center gap-4 rounded-xl bg-white/5 p-4 transition-all hover:bg-bmw-blue">
-                  <Instagram size={20} /> <span>Instagram</span>
+                <a href="https://instagram.com" target="_blank" className="flex items-center gap-4 rounded-2xl bg-white/5 p-5 transition-all hover:bg-gradient-to-tr hover:from-[#f09433] hover:to-[#bc1888] group">
+                  <Instagram size={24} className="text-pink-500 group-hover:text-white" /> 
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-widest opacity-50">Instagram</span>
+                    <span className="font-bold">@adimotors</span>
+                  </div>
                 </a>
-                <a href="https://twitter.com" target="_blank" className="flex items-center gap-4 rounded-xl bg-white/5 p-4 transition-all hover:bg-bmw-blue">
-                  <Twitter size={20} /> <span>Twitter</span>
+                <a href="mailto:info@adi-motors.com" className="flex items-center gap-4 rounded-2xl bg-white/5 p-5 transition-all hover:bg-adi-blue group">
+                  <Mail size={24} className="text-adi-blue group-hover:text-white" /> 
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-widest opacity-50">Email</span>
+                    <span className="font-bold">Send Inquiry</span>
+                  </div>
+                </a>
+                <a href="https://facebook.com" target="_blank" className="flex items-center gap-4 rounded-2xl bg-white/5 p-5 transition-all hover:bg-[#1877F2] group">
+                  <Facebook size={24} className="text-[#1877F2] group-hover:text-white" /> 
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-widest opacity-50">Facebook</span>
+                    <span className="font-bold">ADI Motors Official</span>
+                  </div>
+                </a>
+                <a href="https://twitter.com" target="_blank" className="flex items-center gap-4 rounded-2xl bg-white/5 p-5 transition-all hover:bg-[#1DA1F2] group">
+                  <Twitter size={24} className="text-[#1DA1F2] group-hover:text-white" /> 
+                  <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-widest opacity-50">Twitter</span>
+                    <span className="font-bold">@ADIMotors</span>
+                  </div>
                 </a>
               </div>
             </div>
-            <GlassCard className="flex flex-col justify-center">
-              <form className="space-y-6">
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-white/50">Full Name</label>
-                  <input type="text" className="w-full rounded-lg border border-white/10 bg-white/5 p-4 focus:border-bmw-blue focus:outline-none" placeholder="John Doe" />
+            <GlassCard className="flex flex-col justify-center border-white/20 p-10">
+              <h3 className="mb-8 text-2xl font-bold">Request a Callback</h3>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-white/40">First Name</label>
+                    <input type="text" className="w-full rounded-xl border border-white/10 bg-white/5 p-4 focus:border-adi-blue focus:outline-none transition-colors" placeholder="John" />
+                  </div>
+                  <div>
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-white/40">Last Name</label>
+                    <input type="text" className="w-full rounded-xl border border-white/10 bg-white/5 p-4 focus:border-adi-blue focus:outline-none transition-colors" placeholder="Doe" />
+                  </div>
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-white/50">Email Address</label>
-                  <input type="email" className="w-full rounded-lg border border-white/10 bg-white/5 p-4 focus:border-bmw-blue focus:outline-none" placeholder="john@example.com" />
+                  <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-white/40">Email Address</label>
+                  <input type="email" className="w-full rounded-xl border border-white/10 bg-white/5 p-4 focus:border-adi-blue focus:outline-none transition-colors" placeholder="john@example.com" />
                 </div>
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-white/50">Message</label>
-                  <textarea rows={4} className="w-full rounded-lg border border-white/10 bg-white/5 p-4 focus:border-bmw-blue focus:outline-none" placeholder="How can we help you?"></textarea>
+                  <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-white/40">Preferred Model</label>
+                  <select className="w-full rounded-xl border border-white/10 bg-white/5 p-4 focus:border-adi-blue focus:outline-none transition-colors appearance-none">
+                    <option className="bg-adi-dark">M4 Competition</option>
+                    <option className="bg-adi-dark">i8 Roadster</option>
+                    <option className="bg-adi-dark">X5 M</option>
+                    <option className="bg-adi-dark">Other</option>
+                  </select>
                 </div>
-                <button className="w-full rounded-full bg-bmw-blue py-4 font-bold transition-all hover:bg-white hover:text-black">
-                  SEND MESSAGE
+                <button className="w-full rounded-full bg-adi-blue py-5 font-black tracking-widest transition-all hover:bg-white hover:text-black shadow-lg shadow-adi-blue/20">
+                  SUBMIT REQUEST
                 </button>
               </form>
             </GlassCard>
@@ -269,20 +327,45 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-black py-12">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-            <div className="flex items-center gap-4">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="Logo" className="h-8 w-8" />
-              <span className="font-bold tracking-widest">BMW SHOWROOM</span>
+      <footer className="relative border-t border-white/10 bg-black py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-adi-blue/5 opacity-50" />
+        <div className="container relative z-10 mx-auto px-6">
+          <div className="grid gap-12 md:grid-cols-4">
+            <div className="col-span-2">
+              <div className="mb-6 flex items-center gap-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="Logo" className="h-12 w-12" />
+                <span className="text-2xl font-black tracking-[0.3em]">ADI MOTORS</span>
+              </div>
+              <p className="max-w-md text-white/40 font-light leading-relaxed">
+                Defining the future of luxury mobility. Experience the perfect blend of 
+                performance, innovation, and design in every curve.
+              </p>
             </div>
-            <div className="flex gap-8 text-sm text-white/50">
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Terms of Service</a>
-              <a href="#" className="hover:text-white">Cookie Policy</a>
+            <div>
+              <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">Quick Links</h4>
+              <ul className="space-y-4 text-sm text-white/40">
+                <li><a href="#home" className="hover:text-adi-blue transition-colors">Home</a></li>
+                <li><a href="#about" className="hover:text-adi-blue transition-colors">About</a></li>
+                <li><a href="#portfolio" className="hover:text-adi-blue transition-colors">Fleet</a></li>
+                <li><a href="#contact" className="hover:text-adi-blue transition-colors">Contact</a></li>
+              </ul>
             </div>
-            <p className="text-sm text-white/30">
-              © 2025 BMW Showroom. Created with Passion.
+            <div>
+              <h4 className="mb-6 text-sm font-bold uppercase tracking-widest text-white">Legal</h4>
+              <ul className="space-y-4 text-sm text-white/40">
+                <li><a href="#" className="hover:text-adi-blue transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-adi-blue transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-adi-blue transition-colors">Cookie Policy</a></li>
+                <li><a href="#" className="hover:text-adi-blue transition-colors">Imprint</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-20 border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-white/20">
+              © 2025 ADI MOTORS. All Rights Reserved.
+            </p>
+            <p className="text-xs font-bold uppercase tracking-widest text-white/20">
+              Created by <span className="text-white/40">Dualite Senior Engineer</span>
             </p>
           </div>
         </div>
@@ -292,40 +375,58 @@ const App = () => {
       <GlassModal 
         isOpen={activeModal === 'about'} 
         onClose={() => setActiveModal(null)} 
-        title="BMW Heritage & Vision"
+        title="ADI MOTORS: The Heritage"
       >
-        <p className="mb-4">BMW (Bayerische Motoren Werke AG) has been a symbol of luxury and performance since 1916. Our showroom brings this legacy to life through immersive technology and personalized service.</p>
-        <p>Our vision is to define the future of premium mobility through sustainability, digital innovation, and sheer driving pleasure. Every vehicle in our collection is a testament to German precision engineering.</p>
+        <div className="space-y-6">
+          <p className="text-lg font-light leading-relaxed">ADI MOTORS has been a symbol of luxury and performance since its inception. Our showroom brings this legacy to life through immersive technology and personalized service.</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-2xl bg-white/5 p-6 border border-white/10">
+              <h5 className="text-adi-blue font-bold mb-2">Innovation</h5>
+              <p className="text-sm opacity-60">Leading the world in electric mobility and autonomous driving tech.</p>
+            </div>
+            <div className="rounded-2xl bg-white/5 p-6 border border-white/10">
+              <h5 className="text-adi-blue font-bold mb-2">Performance</h5>
+              <p className="text-sm opacity-60">M-Series engineering that defines the sports car segment.</p>
+            </div>
+          </div>
+          <p className="opacity-70">Our vision is to define the future of premium mobility through sustainability, digital innovation, and sheer driving pleasure. Every vehicle in our collection is a testament to German precision engineering.</p>
+        </div>
       </GlassModal>
 
       <GlassModal 
         isOpen={activeModal === 'services'} 
         onClose={() => setActiveModal(null)} 
-        title="Our Exclusive Services"
+        title="ADI MOTORS Exclusive Services"
       >
-        <ul className="space-y-4">
-          <li className="flex gap-4">
-            <div className="h-2 w-2 mt-2 rounded-full bg-bmw-blue" />
-            <div>
-              <h4 className="font-bold">BMW Financial Services</h4>
-              <p className="text-sm opacity-70">Tailored financing and leasing options to suit your lifestyle.</p>
+        <div className="grid gap-6">
+          <div className="flex gap-6 p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="flex-shrink-0 h-12 w-12 rounded-full bg-adi-blue/20 flex items-center justify-center text-adi-blue">
+              <Zap size={24} />
             </div>
-          </li>
-          <li className="flex gap-4">
-            <div className="h-2 w-2 mt-2 rounded-full bg-bmw-blue" />
             <div>
-              <h4 className="font-bold">BMW Diplomatic Sales</h4>
-              <p className="text-sm opacity-70">Exclusive benefits for diplomats and international organizations.</p>
+              <h4 className="font-bold text-lg">ADI Financial Services</h4>
+              <p className="text-sm opacity-60 leading-relaxed">Tailored financing and leasing options designed to suit your elite lifestyle with flexible terms and competitive rates.</p>
             </div>
-          </li>
-          <li className="flex gap-4">
-            <div className="h-2 w-2 mt-2 rounded-full bg-bmw-blue" />
+          </div>
+          <div className="flex gap-6 p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="flex-shrink-0 h-12 w-12 rounded-full bg-adi-blue/20 flex items-center justify-center text-adi-blue">
+              <Shield size={24} />
+            </div>
             <div>
-              <h4 className="font-bold">Certified Pre-Owned</h4>
-              <p className="text-sm opacity-70">Rigorous 360-degree inspection and comprehensive warranty.</p>
+              <h4 className="font-bold text-lg">ADI Diplomatic Sales</h4>
+              <p className="text-sm opacity-60 leading-relaxed">Exclusive benefits and personalized service for diplomats and members of international organizations worldwide.</p>
             </div>
-          </li>
-        </ul>
+          </div>
+          <div className="flex gap-6 p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="flex-shrink-0 h-12 w-12 rounded-full bg-adi-blue/20 flex items-center justify-center text-adi-blue">
+              <Settings size={24} />
+            </div>
+            <div>
+              <h4 className="font-bold text-lg">Certified Pre-Owned</h4>
+              <p className="text-sm opacity-60 leading-relaxed">Rigorous 360-degree inspection and comprehensive warranty for peace of mind with every pre-owned masterpiece.</p>
+            </div>
+          </div>
+        </div>
       </GlassModal>
 
       {cars.map(car => (
@@ -335,39 +436,48 @@ const App = () => {
           onClose={() => setActiveModal(null)} 
           title={car.name}
         >
-          <img src={car.image} alt={car.name} className="mb-6 w-full rounded-xl" />
-          <h4 className="mb-2 text-lg font-bold text-bmw-blue">{car.specs}</h4>
-          <p className="opacity-80">{car.desc}</p>
-          <div className="mt-8 grid grid-cols-2 gap-4">
-            <div className="rounded-lg bg-white/5 p-4 text-center">
-              <span className="block text-xs uppercase tracking-widest opacity-50">Top Speed</span>
-              <span className="text-xl font-bold">155+ MPH</span>
+          <div className="relative overflow-hidden rounded-2xl mb-8">
+            <img src={car.image} alt={car.name} className="w-full object-cover h-64" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          </div>
+          <h4 className="mb-4 text-2xl font-black text-adi-blue tracking-tighter">{car.specs}</h4>
+          <p className="text-lg font-light leading-relaxed opacity-80 mb-8">{car.desc}</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+              <span className="block text-xs uppercase tracking-widest opacity-40 mb-1">Top Speed</span>
+              <span className="text-2xl font-black">155+ MPH</span>
             </div>
-            <div className="rounded-lg bg-white/5 p-4 text-center">
-              <span className="block text-xs uppercase tracking-widest opacity-50">Transmission</span>
-              <span className="text-xl font-bold">8-Speed M Steptronic</span>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+              <span className="block text-xs uppercase tracking-widest opacity-40 mb-1">Transmission</span>
+              <span className="text-2xl font-black">8-Speed M</span>
             </div>
           </div>
+          <button className="mt-8 w-full rounded-full bg-white py-4 font-bold text-black transition-all hover:bg-adi-blue hover:text-white">
+            BOOK A TEST DRIVE
+          </button>
         </GlassModal>
       ))}
 
       <GlassModal 
         isOpen={activeModal === 'testimonial'} 
         onClose={() => setActiveModal(null)} 
-        title="Client Testimonial"
+        title="The Surya Experience"
       >
         <div className="flex flex-col items-center text-center">
           <img 
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Suriya_at_the_68th_National_Film_Awards.jpg/220px-Suriya_at_the_68th_National_Film_Awards.jpg" 
-            className="mb-6 h-24 w-24 rounded-full border-2 border-bmw-blue object-cover" 
+            className="mb-8 h-32 w-32 rounded-full border-4 border-adi-blue object-cover shadow-2xl" 
             alt="Surya" 
           />
-          <p className="text-lg italic">
-            "I have always admired BMW's commitment to performance. This showroom experience was the best I've had globally. The team understands the passion behind the drive. Truly very impressive and very comfortable."
+          <div className="mb-6 flex gap-1 text-yellow-500">
+            {[...Array(5)].map((_, i) => <Star key={i} size={24} fill="currentColor" />)}
+          </div>
+          <p className="text-2xl font-light italic leading-relaxed text-white/90">
+            "I have always admired the commitment to performance. This showroom experience at <span className="text-adi-blue font-bold">ADI MOTORS</span> was the best I've had globally. The team understands the passion behind the drive. Truly very impressive and very comfortable."
           </p>
-          <div className="mt-6">
-            <h4 className="font-bold">Surya Sivakumar</h4>
-            <p className="text-sm opacity-50">National Award Winning Actor</p>
+          <div className="mt-10 border-t border-white/10 pt-8 w-full">
+            <h4 className="text-xl font-bold">Surya Sivakumar</h4>
+            <p className="text-sm uppercase tracking-widest opacity-50">National Award Winning Actor</p>
           </div>
         </div>
       </GlassModal>

@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bmw: {
+        adi: {
           blue: '#0066b2',
           silver: '#e6e6e6',
           dark: '#0a0a0a',
